@@ -1,23 +1,38 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
-    <footer className="footer p-10 bg-neutral text-neutral-content">
-      <nav>
-        <h6 className="footer-title">Servicios</h6> 
-        <a className="link link-hover">Web</a>
-        <a className="link link-hover">Consultoría</a>
-        <a className="link link-hover">Soporte</a>
-      </nav> 
-      <nav>
-        <h6 className="footer-title">Compañía</h6> 
-        <a className="link link-hover">Acerca</a>
-        <a className="link link-hover">Trabaja con nosotros</a>
-        <a className="link link-hover">Blog</a>
-      </nav> 
-      <nav>
-        <h6 className="footer-title">Legal</h6> 
-        <a className="link link-hover">Términos</a>
-        <a className="link link-hover">Privacidad</a>
-      </nav>
+    <footer className="bg-base-200 text-base-content py-12 px-6">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center justify-items-center">
+        {/* Columna 1 */}
+        <div className="flex flex-col items-center">
+          <h6 className="font-semibold mb-4">Servicios</h6>
+          <ul className="space-y-2">
+            <li><Link to="/desarrollo-web" className="hover:underline">Web</Link></li>
+            <li><Link to="/consultoria" className="hover:underline">Consultoría</Link></li>
+            <li><Link to="/soporte-tecnico" className="hover:underline">Soporte</Link></li>
+          </ul>
+        </div>
+
+        {/* Columna 2 */}
+        <div className="flex flex-col items-center">
+          <h6 className="font-semibold mb-4">Compañía</h6>
+          <ul className="space-y-2">
+            <li><Link to="/acerca" className="hover:underline">Acerca</Link></li>
+            <li><Link to="/trabaja-con-nosotros" className="hover:underline">Trabaja con nosotros</Link></li>
+            <li><Link to="/blog" className="hover:underline">Blog</Link></li>
+          </ul>
+        </div>
+
+        {/* Columna 3 */}
+        <div className="flex flex-col items-center">
+          <h6 className="font-semibold mb-4">Legal</h6>
+          <ul className="space-y-2">
+            <li><Link to="/terminos" className="hover:underline">Términos</Link></li>
+            <li><Link to="/privacidad" className="hover:underline">Privacidad</Link></li>
+          </ul>
+        </div>
+      </div>
     </footer>
   );
 }

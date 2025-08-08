@@ -6,7 +6,7 @@ import Hero from "./components/Hero";
 import Services from "./components/Services";
 import PricingTable from "./components/PricingTable";
 import Footer from "./components/Footer";
-
+import ContactForm from "./components/ContactMe";
 import DesarrolloWeb from "./pages/DesarrolloWeb";
 import Consultoria from "./pages/Consultoria";
 import SoporteTecnico from "./pages/SoporteTecnico";
@@ -48,11 +48,8 @@ export default function App() {
                 <section id="pricing">
                   <PricingTable />
                 </section>
-                <section id="contact">
-                  <div className="text-center py-24">
-                    <h2 className="text-3xl font-bold">Contáctanos</h2>
-                    <p className="mt-4 text-lg text-neutral">Próximamente...</p>
-                  </div>
+                <section id="contact" className="py-16 bg-base-100">
+                  <ContactForm />
                 </section>
               </>
             }

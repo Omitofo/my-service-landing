@@ -17,6 +17,8 @@ import TrabajaConNosotros from "./pages/TrabajaConNosotros";
 import Blog from "./pages/Blog";
 import Terminos from "./pages/Terminos";
 import Privacidad from "./pages/Privacidad";
+import Pay from "./pages/Pay";
+
 
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -64,6 +66,8 @@ export default function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/terminos" element={<Terminos />} />
           <Route path="/privacidad" element={<Privacidad />} />
+          <Route path="/pago" element={<Pay />} />
+
         </Routes>
         <Footer />
       </div>

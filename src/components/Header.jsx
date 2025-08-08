@@ -17,7 +17,21 @@ export default function Header({ theme, toggleTheme }) {
     }
   }, [location]);
 
-  // Manejador de navegación hacia secciones
+  // Cerrar menú al hacer click fuera
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isMenuOpen]);
+
+  // Navegación suave a secciones
   const handleNavToSection = (id) => {
     if (location.pathname !== "/") {
       navigate(`/#${id}`);
@@ -28,23 +42,6 @@ export default function Header({ theme, toggleTheme }) {
     setIsMenuOpen(false);
   };
 
-  // Cerrar menú si clic fuera
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setIsMenuOpen(false);
-      }
-    };
-    if (isMenuOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isMenuOpen]);
-
   return (
     <header className="navbar bg-base-100 shadow px-4">
       <div className="flex-1">
@@ -53,16 +50,16 @@ export default function Header({ theme, toggleTheme }) {
         </Link>
       </div>
 
-      {/* Botón hamburguesa para móviles */}
-      <div className="flex-none lg:hidden">
+      {/* Botón hamburguesa para móvil con dropdown */}
+      <div className="flex-none md:hidden relative">
         <button
-          className="btn btn-square btn-ghost"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
+          className="btn btn-square btn-ghost"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="inline-block w-6 h-6 stroke-current"
+            className="w-6 h-6 stroke-current"
             fill="none"
             viewBox="0 0 24 24"
           >
@@ -74,15 +71,54 @@ export default function Header({ theme, toggleTheme }) {
             />
           </svg>
         </button>
+
+        {/* Dropdown móvil: alineado a la derecha para evitar desbordes */}
+        {isMenuOpen && (
+          <div
+            ref={menuRef}
+            className="
+              absolute top-full right-0 mt-2 bg-base-100 rounded-lg shadow-lg
+              w-56 p-4 flex flex-col gap-4 z-50
+              max-w-screen-sm
+            "
+            style={{ minWidth: "160px" }}
+          >
+            <button
+              onClick={() => handleNavToSection("services")}
+              className="text-left w-full btn btn-ghost"
+            >
+              Servicios
+            </button>
+            <button
+              onClick={() => handleNavToSection("pricing")}
+              className="text-left w-full btn btn-ghost"
+            >
+              Precios
+            </button>
+            <button
+              onClick={() => handleNavToSection("contact")}
+              className="text-left w-full btn btn-ghost"
+            >
+              Contacto
+            </button>
+            <button
+              onClick={() => {
+                toggleTheme();
+                setIsMenuOpen(false);
+              }}
+              className="btn btn-outline w-full mt-2"
+            >
+              {theme === "light" ? "🌙" : "☀️"}
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Menú de escritorio */}
-      <div className="hidden lg:flex flex-none items-center gap-4">
+      <div className="hidden md:flex flex-none items-center gap-4">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <button onClick={() => handleNavToSection("services")}>
-              Servicios
-            </button>
+            <button onClick={() => handleNavToSection("services")}>Servicios</button>
           </li>
           <li>
             <button onClick={() => handleNavToSection("pricing")}>Precios</button>
@@ -95,40 +131,6 @@ export default function Header({ theme, toggleTheme }) {
           {theme === "light" ? "🌙" : "☀️"}
         </button>
       </div>
-
-      {/* Menú móvil */}
-      {isMenuOpen && (
-        <div
-          ref={menuRef}
-          className="absolute top-16 right-0 left-0 mx-auto bg-base-100 p-6 rounded-lg shadow-lg lg:hidden z-50 max-w-md"
-          style={{ width: "90vw" }}
-        >
-          <ul className="menu menu-vertical text-lg gap-4 justify-center">
-            <li>
-              <button onClick={() => handleNavToSection("services")}>
-                Servicios
-              </button>
-            </li>
-            <li>
-              <button onClick={() => handleNavToSection("pricing")}>Precios</button>
-            </li>
-            <li>
-              <button onClick={() => handleNavToSection("contact")}>Contacto</button>
-            </li>
-            <li>
-              <button
-                className="btn btn-sm btn-outline w-full mt-4"
-                onClick={() => {
-                  toggleTheme();
-                  setIsMenuOpen(false);
-                }}
-              >
-                {theme === "light" ? "🌙" : "☀️"}
-              </button>
-            </li>
-          </ul>
-        </div>
-      )}
     </header>
   );
 }

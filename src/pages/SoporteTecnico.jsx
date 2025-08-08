@@ -1,6 +1,6 @@
 export default function SoporteTecnico() {
   return (
-    <section className="px-4 py-12 max-w-6xl mx-auto">
+    <section className="px-4 py-12 max-w-6xl mx-auto overflow-x-hidden">
       <h1 className="text-4xl font-bold mb-6 text-center">Soporte Técnico</h1>
 
       <div className="mb-10 text-center">
@@ -32,18 +32,17 @@ export default function SoporteTecnico() {
         </div>
       </div>
 
-      {/* Centrado de estadísticas */}
       <div className="flex justify-center">
-        <div className="stats shadow w-full max-w-4xl">
-          <div className="stat">
+        <div className="stats shadow w-full max-w-4xl px-4 flex flex-col md:flex-row gap-6">
+          <div className="stat flex-1 text-center">
             <div className="stat-title">Tickets resueltos</div>
-            <div className="stat-value text-primary">+300</div>
+            <div className="stat-value text-primary">300+</div>
           </div>
-          <div className="stat">
+          <div className="stat flex-1 text-center">
             <div className="stat-title">Tiempo promedio de respuesta</div>
             <div className="stat-value">2h</div>
           </div>
-          <div className="stat">
+          <div className="stat flex-1 text-center">
             <div className="stat-title">Satisfacción del cliente</div>
             <div className="stat-value text-secondary">97%</div>
           </div>

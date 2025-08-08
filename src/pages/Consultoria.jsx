@@ -1,6 +1,6 @@
 export default function Consultoria() {
   return (
-    <section className="px-4 py-12 max-w-6xl mx-auto">
+    <section className="px-4 py-12 max-w-6xl mx-auto overflow-x-hidden">
       <h1 className="text-4xl font-bold mb-6 text-center">Consultoría</h1>
 
       <div className="mb-10 text-center">
@@ -9,7 +9,6 @@ export default function Consultoria() {
         </p>
       </div>
 
-      {/* Divider entre el intro y los cards con margen reducido */}
       <div className="divider my-8" />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
@@ -35,19 +34,18 @@ export default function Consultoria() {
         </div>
       </div>
 
-      {/* Divider con margen reducido */}
       <div className="divider my-8" />
 
-      <div className="stats shadow w-full max-w-6xl mx-auto px-4">
-        <div className="stat flex flex-col items-center justify-center text-center">
+      <div className="stats shadow w-full max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-center gap-6">
+        <div className="stat flex flex-col items-center justify-center text-center flex-1">
           <div className="stat-title">Clientes asesorados</div>
-          <div className="stat-value text-primary">+80</div>
+          <div className="stat-value text-primary">80+</div>
         </div>
-        <div className="stat flex flex-col items-center justify-center text-center">
+        <div className="stat flex flex-col items-center justify-center text-center flex-1">
           <div className="stat-title">Casos de éxito</div>
           <div className="stat-value">94%</div>
         </div>
-        <div className="stat flex flex-col items-center justify-center text-center">
+        <div className="stat flex flex-col items-center justify-center text-center flex-1">
           <div className="stat-title">Industrias atendidas</div>
           <div className="stat-value text-secondary">12+</div>
         </div>

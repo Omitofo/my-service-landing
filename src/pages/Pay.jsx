@@ -74,7 +74,7 @@ export default function Pay() {
         <ul className="steps mb-10 w-full">
           <li className={`step ${step >= 0 ? "step-primary" : ""}`}>Datos</li>
           <li className={`step ${step >= 1 ? "step-primary" : ""}`}>Pago</li>
-          <li className={`step ${step >= 2 ? "step-primary" : ""}`}>Confirmación</li>
+          <li className={`step ${step >= 2 ? "step-primary" : ""}`}>Confirma</li>
           <li className={`step ${step >= 3 ? "step-primary" : ""}`}>Éxito</li>
         </ul>
 

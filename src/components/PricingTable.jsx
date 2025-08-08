@@ -62,7 +62,7 @@ export default function PricingTable() {
         <h2 className="text-3xl font-bold">Planes y Precios</h2>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
         {plans.map(({ name, originalPrice, discountPrice, features, highlight }, i) => {
           const discountPercent = getDiscountPercent(originalPrice, discountPrice);
 

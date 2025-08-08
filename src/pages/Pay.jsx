@@ -214,18 +214,18 @@ export default function Pay() {
 
         {/* Paso 4 - Éxito */}
         {step === 3 && (
-          <div className="text-center">
-            <h2 className="text-2xl font-bold text-green-600 mb-4">
-              ✅ ¡Pago exitoso!
-            </h2>
-            <p className="mb-6">
-              Gracias por tu compra, <strong>{form.name}</strong>. Te hemos enviado
-              un correo de confirmación a <strong>{form.email}</strong>.
-            </p>
-            <button className="btn btn-primary" onClick={() => navigate("/")}>
-              Volver al inicio
-            </button>
-          </div>
+            <div className="text-center mt-20">
+                <h2 className="text-2xl font-bold text-green-600 mb-6">
+                ✅ ¡Pago exitoso!
+                </h2>
+                <p className="mb-6">
+                Gracias por tu compra, <strong>{form.name}</strong>. Te hemos enviado
+                un correo de confirmación a <strong>{form.email}</strong>.
+                </p>
+                <button className="btn btn-primary" onClick={() => navigate("/")}>
+                Volver al inicio
+                </button>
+            </div>
         )}
       </div>
     </div>

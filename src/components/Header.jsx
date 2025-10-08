@@ -137,22 +137,24 @@ export default function Header({ theme, toggleTheme }) {
       </div>
 
       {/* Menú de escritorio */}
-      <div className="hidden md:flex flex-none items-center gap-4">
-        <ul className="menu menu-horizontal px-1">
-          <li>
-            <button onClick={() => handleNavToSection("services")}>Servicios</button>
-          </li>
-          <li>
-            <button onClick={() => handleNavToSection("pricing")}>Precios</button>
-          </li>
-          <li>
-            <button onClick={() => handleNavToSection("contact")}>Contacto</button>
-          </li>
-        </ul>
-        <button className="btn btn-sm btn-outline" onClick={toggleTheme}>
-          {theme === "light" ? "🌙" : "☀️"}
-        </button>
-      </div>
+
+<div className="hidden md:flex flex-none items-center gap-4">
+  <ul className="menu menu-horizontal px-1">
+    <li>
+      <button onClick={() => handleNavToSection("services")}>Servicios</button>
+    </li>
+    <li>
+      <button onClick={() => handleNavToSection("pricing")}>Precios</button>
+    </li>
+    <li>
+      <button onClick={() => handleNavToSection("contact")}>Contacto</button>
+    </li>
+  </ul>
+  <button className="btn btn-ghost btn-sm" onClick={toggleTheme}>
+    {theme === "light" ? "🌙" : "☀️"}
+  </button>
+</div>
+
     </header>
   );
 }

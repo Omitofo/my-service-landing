@@ -94,46 +94,47 @@ export default function Header({ theme, toggleTheme }) {
           </svg>
         </button>
 
-        {/* Dropdown móvil */}
-        {isMenuOpen && (
-          <div
-            ref={menuRef}
-            className="
-              absolute top-full right-0 mt-2 bg-base-100 rounded-lg shadow-lg
-              w-56 p-4 flex flex-col gap-4 z-50
-              max-w-screen-sm
-            "
-            style={{ minWidth: "160px" }}
-          >
-            <button
-              onClick={() => handleNavToSection("services")}
-              className="text-left w-full btn btn-ghost"
-            >
-              Servicios
-            </button>
-            <button
-              onClick={() => handleNavToSection("pricing")}
-              className="text-left w-full btn btn-ghost"
-            >
-              Precios
-            </button>
-            <button
-              onClick={() => handleNavToSection("contact")}
-              className="text-left w-full btn btn-ghost"
-            >
-              Contacto
-            </button>
-            <button
-              onClick={() => {
-                toggleTheme();
-                setIsMenuOpen(false);
-              }}
-              className="btn btn-outline w-full mt-2"
-            >
-              {theme === "light" ? "🌙" : "☀️"}
-            </button>
-          </div>
-        )}
+{/* Dropdown móvil */}
+{isMenuOpen && (
+  <div
+    ref={menuRef}
+    className="
+      absolute top-full right-0 mt-2 bg-base-100 rounded-lg shadow-lg
+      w-56 p-4 flex flex-col gap-4 z-50
+      max-w-screen-sm
+    "
+    style={{ minWidth: "160px" }}
+  >
+    <button
+      onClick={() => handleNavToSection("services")}
+      className="text-left w-full btn btn-ghost"
+    >
+      Servicios
+    </button>
+    <button
+      onClick={() => handleNavToSection("pricing")}
+      className="text-left w-full btn btn-ghost"
+    >
+      Precios
+    </button>
+    <button
+      onClick={() => handleNavToSection("contact")}
+      className="text-left w-full btn btn-ghost"
+    >
+      Contacto
+    </button>
+    <button
+      onClick={() => {
+        toggleTheme();
+        setIsMenuOpen(false);
+      }}
+      className="btn w-full mt-2" // removed btn-outline here
+    >
+      {theme === "light" ? "🌙" : "☀️"}
+    </button>
+  </div>
+)}
+
       </div>
 
       {/* Menú de escritorio */}

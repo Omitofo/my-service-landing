@@ -1,6 +1,6 @@
-//src/components/Header.jsx
+// src/components/Header.jsx
 import { useState, useEffect, useRef } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Header({ theme, toggleTheme }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -43,12 +43,33 @@ export default function Header({ theme, toggleTheme }) {
     setIsMenuOpen(false);
   };
 
+  // Click en logo: ir a home y scroll al top
+  const handleLogoClick = () => {
+    if (location.pathname !== "/") {
+      navigate("/", { replace: false });
+      // Scroll after navigation
+      setTimeout(() => {
+        const hero = document.getElementById("hero");
+        if (hero) hero.scrollIntoView({ behavior: "smooth" });
+        else window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 50);
+    } else {
+      const hero = document.getElementById("hero");
+      if (hero) hero.scrollIntoView({ behavior: "smooth" });
+      else window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
-<header className="navbar sticky top-0 z-50 bg-base-100 bg-opacity-90 backdrop-blur-sm shadow px-4">
+    <header className="navbar sticky top-0 z-50 bg-base-100 bg-opacity-90 backdrop-blur-sm shadow px-4">
+      {/* Logo / Home */}
       <div className="flex-1">
-        <Link to="/" className="btn btn-ghost text-xl font-bold">
+        <button
+          onClick={handleLogoClick}
+          className="btn btn-ghost text-xl font-bold"
+        >
           MyServiceCo
-        </Link>
+        </button>
       </div>
 
       {/* Botón hamburguesa para móvil con dropdown */}
@@ -73,7 +94,7 @@ export default function Header({ theme, toggleTheme }) {
           </svg>
         </button>
 
-        {/* Dropdown móvil: alineado a la derecha para evitar desbordes */}
+        {/* Dropdown móvil */}
         {isMenuOpen && (
           <div
             ref={menuRef}

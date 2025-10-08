@@ -1,4 +1,4 @@
-  // src/pages/WebDev.jsx
+  // src/pages/DesarrolloWeb.jsx
 export default function DesarrolloWeb() {
   return (
     <section className="min-h-screen py-16 px-6 bg-base-100">

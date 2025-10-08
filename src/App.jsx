@@ -44,7 +44,7 @@ export default function App() {
             path="/"
             element={
               <>
-                <Hero />
+                <Hero theme={theme} />
 
                 {/* Secciones con scroll-mt para compensar header sticky */}
                 <section id="services" className="scroll-mt-16">

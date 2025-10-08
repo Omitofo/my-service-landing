@@ -44,7 +44,7 @@ export default function Header({ theme, toggleTheme }) {
   };
 
   return (
-    <header className="navbar bg-base-100 shadow px-4">
+<header className="navbar sticky top-0 z-50 bg-base-100 bg-opacity-90 backdrop-blur-sm shadow px-4">
       <div className="flex-1">
         <Link to="/" className="btn btn-ghost text-xl font-bold">
           MyServiceCo

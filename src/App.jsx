@@ -1,4 +1,4 @@
-//src/App.jsx
+// src/App.jsx
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -20,7 +20,6 @@ import Terminos from "./pages/Terminos";
 import Privacidad from "./pages/Privacidad";
 import Pay from "./pages/Pay";
 
-
 import ScrollToTop from "./components/ScrollToTop";
 
 export default function App() {
@@ -39,37 +38,42 @@ export default function App() {
       <ScrollToTop />
       <div className="flex flex-col min-h-screen">
         <Header theme={theme} toggleTheme={toggleTheme} />
+
         <Routes>
           <Route
             path="/"
             element={
               <>
                 <Hero />
-                <section id="services">
+
+                {/* Secciones con scroll-mt para compensar header sticky */}
+                <section id="services" className="scroll-mt-16">
                   <Services />
                 </section>
-                <section id="pricing">
+
+                <section id="pricing" className="scroll-mt-16">
                   <PricingTable />
                 </section>
-                <section id="contact" className="py-16 bg-base-100">
+
+                <section id="contact" className="py-16 bg-base-100 scroll-mt-16">
                   <ContactForm />
                 </section>
               </>
             }
           />
+
+          {/* Páginas adicionales */}
           <Route path="/desarrollo-web" element={<DesarrolloWeb />} />
           <Route path="/consultoria" element={<Consultoria />} />
           <Route path="/soporte-tecnico" element={<SoporteTecnico />} />
-
-          {/* Nuevas rutas */}
           <Route path="/acerca" element={<Acerca />} />
           <Route path="/trabaja-con-nosotros" element={<TrabajaConNosotros />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/terminos" element={<Terminos />} />
           <Route path="/privacidad" element={<Privacidad />} />
           <Route path="/pago" element={<Pay />} />
-
         </Routes>
+
         <Footer />
       </div>
     </Router>

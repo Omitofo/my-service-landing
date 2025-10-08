@@ -28,28 +28,29 @@ export default function Hero({ theme }) {
         </div>
 
         {/* Text + Button */}
-        <div className="flex flex-col justify-center text-center xl:text-left max-w-md xl:max-w-lg">
-          <h1
-            className={`text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-bold mb-3 leading-snug ${
-              theme === 'dark' ? 'text-white' : 'text-gray-900'
-            }`}
-          >
-            Impulsa tu negocio al siguiente nivel
-          </h1>
-          <p
-            className={`text-sm sm:text-base xl:text-lg mb-4 leading-relaxed xl:max-w-[300px] ${
-              theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
-            }`}
-          >
-            Consultoría profesional y desarrollo web a medida, adaptado a tus necesidades.
-          </p>
-          <button
-            onClick={handleClick}
-            className="bg-gray-900 text-white font-medium rounded-full px-5 py-1.5 text-sm shadow-sm hover:shadow-md hover:bg-gray-800 transition-all duration-200 mx-auto xl:mx-0 w-max"
-          >
-            Solicita una cotización
-          </button>
-        </div>
+<div className="flex flex-col justify-center text-center xl:text-left max-w-md xl:max-w-lg">
+  <h1
+    className={`text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-bold mb-3 leading-snug ${
+      theme === 'dark' ? 'text-white' : 'text-gray-900'
+    }`}
+  >
+    Impulsa tu negocio al siguiente nivel
+  </h1>
+  <p
+    className={`text-sm sm:text-base xl:text-lg mb-4 leading-relaxed xl:max-w-[300px] ${
+      theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
+    }`}
+  >
+    Consultoría profesional y desarrollo web a medida, adaptado a tus necesidades.
+  </p>
+  <button
+    onClick={handleClick}
+    className="btn btn-primary btn-sm w-max mx-auto xl:mx-0"
+  >
+    Solicita una cotización
+  </button>
+</div>
+
 
       </div>
     </section>

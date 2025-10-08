@@ -68,7 +68,7 @@ export default function Header({ theme, toggleTheme }) {
           onClick={handleLogoClick}
           className="btn btn-ghost text-xl font-bold"
         >
-          MyServiceCo
+          Lumina Group
         </button>
       </div>
 

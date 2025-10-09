@@ -65,7 +65,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-base-200 rounded-lg shadow-md">
+<div className="max-w-md mx-auto p-6 bg-base-300 rounded-2xl shadow-lg border border-base-300">
       {!success ? (
         <form onSubmit={handleSubmit} className="flex flex-col">
           <h3 className="text-2xl font-bold mb-6 text-center">Solicita una cotización</h3>
